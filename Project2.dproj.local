@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.045,C:\Projects\Project2.dproj=C:\Test\TestGUI\Project2.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.515,C:\Projects\Unit2.fmx=C:\Test\TestGUI\Unit2.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.515,C:\Projects\Unit2.pas=C:\Test\TestGUI\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.545,=C:\Projects\Unit2.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
