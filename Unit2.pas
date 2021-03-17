@@ -7,7 +7,7 @@ uses
   Unit1, System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls, FMX.Controls.Presentation, FMX.Edit;
 
-type
+  type
 
   TForm2 = class(TForm)
     EdtName: TEdit;
@@ -37,6 +37,9 @@ type
 var
   Form2: TForm2;
   Employee: TWork;
+
+  str:string;
+
 implementation
 
 {$R *.fmx}
@@ -48,10 +51,12 @@ procedure TForm2.BtnExitClick(Sender: TObject);
 
 procedure TForm2.BtnSaveClick(Sender: TObject);
   begin
+  Employee.Create(45,Red,'aass','qqq','dsa');
     if EdtName.Text <> null then
-      Employee.SetName(EdtName.Text)
-    else
-      ShowMessage('¬ведите им€!');
+      Employee.SetName(EdtName.Text);
+//      EdtName.Text := str;
+//    else
+//      ShowMessage('¬ведите им€!');
 
 //    if EdtSecondName.Text = null then
 //      ShowMessage('¬ведите ‘амилию')
