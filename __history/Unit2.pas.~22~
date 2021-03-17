@@ -53,8 +53,8 @@ procedure TForm2.BtnSaveClick(Sender: TObject);
   begin
   Employee.Create(45,Red,'aass','qqq','dsa');
     if EdtName.Text <> null then
-    EdtName.Text := str;
-    Employee.SetName(str)
+      Employee.SetName(EdtName.Text);
+//      EdtName.Text := str;
 //    else
 //      ShowMessage('¬ведите им€!');
 

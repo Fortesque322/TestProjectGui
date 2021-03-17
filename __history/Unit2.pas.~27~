@@ -27,6 +27,7 @@ uses
     procedure BtnUpdateClick(Sender: TObject);
     procedure BtnSaveClick(Sender: TObject);
     procedure BtnExitClick(Sender: TObject);
+    procedure BtnClearClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -44,6 +45,13 @@ implementation
 
 {$R *.fmx}
 
+procedure TForm2.BtnClearClick(Sender: TObject);
+  begin
+  //  Employee.Init;
+//  ShowMessage('no: ' + Employee.GetSecondName) // Ошибка доступа к памяти по чтению
+
+  end;
+
 procedure TForm2.BtnExitClick(Sender: TObject);
   begin
     Close;
@@ -53,8 +61,8 @@ procedure TForm2.BtnSaveClick(Sender: TObject);
   begin
   Employee.Create(45,Red,'aass','qqq','dsa');
     if EdtName.Text <> null then
-      EdtName.Text := str;
-      Employee.SetName(str)
+      Employee.SetName(EdtName.Text);
+//      EdtName.Text := str;
 //    else
 //      ShowMessage('Введите имя!');
 

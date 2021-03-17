@@ -27,6 +27,7 @@ uses
     procedure BtnUpdateClick(Sender: TObject);
     procedure BtnSaveClick(Sender: TObject);
     procedure BtnExitClick(Sender: TObject);
+    procedure BtnClearClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -44,6 +45,11 @@ implementation
 
 {$R *.fmx}
 
+procedure TForm2.BtnClearClick(Sender: TObject);
+  begin
+    Employee.Init;
+  end;
+
 procedure TForm2.BtnExitClick(Sender: TObject);
   begin
     Close;
@@ -52,12 +58,9 @@ procedure TForm2.BtnExitClick(Sender: TObject);
 procedure TForm2.BtnSaveClick(Sender: TObject);
   begin
   Employee.Create(45,Red,'aass','qqq','dsa');
-//   if EdtName.Text <> null then
-//      EdtName.Text := str;
+    if EdtName.Text <> null then
       Employee.SetName(EdtName.Text);
-      Employee.SetSecondName(EdtSecondName.Text);
-      Employee.SetWorkName(EdtProf.Text);
-//      Employee.SetColorEye(EdtName.Text);
+//      EdtName.Text := str;
 //    else
 //      ShowMessage('¬ведите им€!');
 

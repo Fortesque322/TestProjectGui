@@ -53,25 +53,25 @@ procedure TForm2.BtnSaveClick(Sender: TObject);
   begin
   Employee.Create(45,Red,'aass','qqq','dsa');
     if EdtName.Text <> null then
-    EdtName.Text := str;
-    Employee.SetName(str) ;
+      Employee.SetName(EdtName.Text);
+//      EdtName.Text := str;
 //    else
 //      ShowMessage('Введите имя!');
 
-    if EdtSecondName.Text = null then
-      ShowMessage('Введите Фамилию')
-    else
-    Employee.SetSecondName(EdtSecondName.Text);
-
-    if EdtProf.Text = null then
-      ShowMessage('Введите Профессию')
-    else
-    Employee.SetWorkName(EdtProf.Text);
-
-    if EdtOld.Text = null then
-      ShowMessage('Введите возраст')
-    else
-    Employee.SetOld(StrToInt(EdtOld.Text));
+//    if EdtSecondName.Text = null then
+//      ShowMessage('Введите Фамилию')
+//    else
+//    Employee.SetSecondName(EdtSecondName.Text);
+//
+//    if EdtProf.Text = null then
+//      ShowMessage('Введите Профессию')
+//    else
+//    Employee.SetWorkName(EdtProf.Text);
+//
+//    if EdtOld.Text = null then
+//      ShowMessage('Введите возраст')
+//    else
+//    Employee.SetOld(StrToInt(EdtOld.Text));
   end;
 
 procedure TForm2.BtnUpdateClick(Sender: TObject);
