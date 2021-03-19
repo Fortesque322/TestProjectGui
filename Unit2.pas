@@ -32,12 +32,13 @@ uses
   private
     { Private declarations }
   public
+  Employee: TWork;
     { Public declarations }
   end;
 
 var
   Form2: TForm2;
-  Employee: TWork;
+
 
   str:string;
 
@@ -47,30 +48,35 @@ implementation
 
 procedure TForm2.BtnClearClick(Sender: TObject);
   begin
-  //  Employee.Init;
-  ShowMessage('no: ' + Employee.GetSecondName) // Ошибка доступа к памяти по чтению
-
+    Employee.Init;
+    EdtName.Text :=  Employee.GetName;
+    EdtSecondName.Text := Employee.GetSecondName;
+    EdtProf.Text := Employee.GetWorkName;
+    EdtOld.Text := IntToStr(Employee.GetOld);
+    if EdtOld.Text <> null then
+      EdtOld.Text := '';
   end;
 
 procedure TForm2.BtnExitClick(Sender: TObject);
   begin
+    Employee.Destroy;
     Close;
   end;
 
 procedure TForm2.BtnSaveClick(Sender: TObject);
   begin
-  Employee.Create(45,Red,'aass','qqq','dsa');
-    if EdtName.Text <> null then
-      Employee.SetName(EdtName.Text);
-//      EdtName.Text := str;
+//    if EdtName.Text <> null then
+//      Employee.SetName(EdtName.Text)
 //    else
 //      ShowMessage('Введите имя!');
-
+//
 //    if EdtSecondName.Text = null then
 //      ShowMessage('Введите Фамилию')
 //    else
-//    Employee.SetSecondName(EdtSecondName.Text);
-//
+      Employee.SetName(EdtName.Text);
+      Employee.SetSecondName(EdtSecondName.Text);
+      Employee.SetOld(StrToInt(EdtOld.Text));
+      Employee.SetWorkName(EdtProf.Text);
 //    if EdtProf.Text = null then
 //      ShowMessage('Введите Профессию')
 //    else
@@ -93,7 +99,12 @@ begin
   BtnSave.Enabled := false;
   BtnClear.Enabled := false;
   BtnUpdate.Enabled := true;
-end;
+  Employee := TWork.Create(12,Red,'AAAA','DDDD','CCCC');
+  EdtName.Text := Employee.GetName;
+  EdtSecondName.Text := Employee.GetSecondName;
+  EdtOld.Text := IntToStr(Employee.GetOld);
+  EdtProf.Text := Employee.GetWorkName;
+  end;
 
 
 end.

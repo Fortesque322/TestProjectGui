@@ -1,0 +1,107 @@
+unit Unit2;
+
+
+interface
+
+uses
+  Unit1, System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls, FMX.Controls.Presentation, FMX.Edit;
+
+  type
+
+  TForm2 = class(TForm)
+    EdtName: TEdit;
+    LbName: TLabel;
+    EdtSecondName: TEdit;
+    LbSecondName: TLabel;
+    EdtProf: TEdit;
+    LbWorkName: TLabel;
+    EdtOld: TEdit;
+    LbOld: TLabel;
+    BtnUpdate: TButton;
+    BtnSave: TButton;
+    BtnClear: TButton;
+    BtnExit: TButton;
+    Button1: TButton;
+    procedure FormShow(Sender: TObject);
+    procedure BtnUpdateClick(Sender: TObject);
+    procedure BtnSaveClick(Sender: TObject);
+    procedure BtnExitClick(Sender: TObject);
+    procedure BtnClearClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+  Employee: TWork;
+
+  str:string;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm2.BtnClearClick(Sender: TObject);
+  begin
+    Employee.Init;
+    EdtName.Text :=  Employee.GetName;
+    EdtSecondName.Text := Employee.GetSecondName;
+    EdtProf.Text := Employee.GetWorkName;
+    EdtOld.Text := IntToStr(Employee.GetOld);
+    if EdtOld.Text <> null then
+      EdtOld.Text := '';
+  end;
+
+procedure TForm2.BtnExitClick(Sender: TObject);
+  begin
+    Employee.Destroy;
+    Close;
+  end;
+
+procedure TForm2.BtnSaveClick(Sender: TObject);
+  begin
+//    if EdtName.Text <> null then
+//      Employee.SetName(EdtName.Text)
+//    else
+//      ShowMessage('Введите имя!');
+//
+//    if EdtSecondName.Text = null then
+//      ShowMessage('Введите Фамилию')
+//    else
+      Employee.SetSecondName(EdtSecondName.Text);
+//
+//    if EdtProf.Text = null then
+//      ShowMessage('Введите Профессию')
+//    else
+//    Employee.SetWorkName(EdtProf.Text);
+//
+//    if EdtOld.Text = null then
+//      ShowMessage('Введите возраст')
+//    else
+//    Employee.SetOld(StrToInt(EdtOld.Text));
+  end;
+
+procedure TForm2.BtnUpdateClick(Sender: TObject);
+begin
+  BtnSave.Enabled := not BtnSave.Enabled;
+  BtnClear.Enabled := not BtnClear.Enabled;
+end;
+
+procedure TForm2.FormShow(Sender: TObject);
+begin
+  BtnSave.Enabled := false;
+  BtnClear.Enabled := false;
+  BtnUpdate.Enabled := true;
+  Employee := TWork.Create(12,Red,'AAAA','DDDD','CCCC');
+  EdtName.Text := Employee.GetName;
+  EdtSecondName.Text := Employee.GetSecondName;
+  EdtOld.Text := IntToStr(Employee.GetOld);
+  EdtProf.Text := Employee.GetWorkName;
+  end;
+
+
+end.
