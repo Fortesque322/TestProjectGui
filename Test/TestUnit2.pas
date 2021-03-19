@@ -65,8 +65,8 @@ var
 begin
   // TODO: Setup method call parameters
   FForm2.BtnUpdateClick(Sender);
-    if FForm2.BtnSave.Enabled or FForm2.BtnClear.Enabled = false then
 
+    if FForm2.BtnSave.Enabled or FForm2.BtnClear.Enabled = false then
     else
     CheckEquals(false,enabled,'no')
 
@@ -77,10 +77,10 @@ procedure TestTForm2.TestBtnSaveClick;
 var
   Sender: TObject;
 begin
-  // TODO: Setup method call parameters
-
   FForm2.BtnSaveClick(Sender);
-  // TODO: Validate method results
+  FForm2.FormShow(Sender);
+//  if Form2.EdtName.Text = 12 then
+
 end;
 
 procedure TestTForm2.TestBtnExitClick;
@@ -89,6 +89,7 @@ var
 begin
   // TODO: Setup method call parameters
   FForm2.BtnExitClick(Sender);
+  Check(Form2.Employee = nil,'Yes')
   // TODO: Validate method results
 end;
 
@@ -96,11 +97,13 @@ procedure TestTForm2.TestBtnClearClick;
 var
   Sender: TObject;
 begin
-  Form2.FormShow(nil);
+  FForm2.FormShow(Sender);
+  str:= 'AAA';
+  FForm2.Employee.SetName(str);
+  if FForm2.Employee.GetName = 'AAA' then
+    CheckEquals('Zaq','AAA','Wrong');
 
-  // TODO: Setup method call parameters
   FForm2.BtnClearClick(Sender);
-  // TODO: Validate method results
 end;
 
 initialization

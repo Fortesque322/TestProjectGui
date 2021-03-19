@@ -32,12 +32,13 @@ uses
   private
     { Private declarations }
   public
+  Employee: TWork;
     { Public declarations }
   end;
 
 var
   Form2: TForm2;
-  Employee: TWork;
+
 
   str:string;
 
@@ -64,16 +65,18 @@ procedure TForm2.BtnExitClick(Sender: TObject);
 
 procedure TForm2.BtnSaveClick(Sender: TObject);
   begin
-    if EdtName.Text <> null then
-      Employee.SetName(EdtName.Text)
-    else
-      ShowMessage('Введите имя!');
-
-    if EdtSecondName.Text = null then
-      ShowMessage('Введите Фамилию')
-    else
-    Employee.SetSecondName(EdtSecondName.Text);
+//    if EdtName.Text <> null then
+//      Employee.SetName(EdtName.Text)
+//    else
+//      ShowMessage('Введите имя!');
 //
+//    if EdtSecondName.Text = null then
+//      ShowMessage('Введите Фамилию')
+//    else
+      Employee.SetName(EdtName.Text);
+      Employee.SetSecondName(EdtSecondName.Text);
+      Employee.SetOld(StrToInt(EdtOld.Text));
+      Employee.SetWorkName(EdtProf.Text);
 //    if EdtProf.Text = null then
 //      ShowMessage('Введите Профессию')
 //    else
@@ -93,11 +96,14 @@ end;
 
 procedure TForm2.FormShow(Sender: TObject);
 begin
+  Employee := TWork.Create(12,Red,'AAAA','DDDD','CCCC');
   BtnSave.Enabled := false;
   BtnClear.Enabled := false;
   BtnUpdate.Enabled := true;
-  Employee := TWork.Create(12,Red,'','','');
   EdtName.Text := Employee.GetName;
+  EdtSecondName.Text := Employee.GetSecondName;
+  EdtOld.Text := IntToStr(Employee.GetOld);
+  EdtProf.Text := Employee.GetWorkName;
   end;
 
 

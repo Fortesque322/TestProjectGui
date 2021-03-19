@@ -96,10 +96,10 @@ end;
 
 procedure TForm2.FormShow(Sender: TObject);
 begin
+  Employee := TWork.Create(12,Red,'John','Smith','Sys');
   BtnSave.Enabled := false;
   BtnClear.Enabled := false;
   BtnUpdate.Enabled := true;
-  Employee := TWork.Create(12,Red,'AAAA','DDDD','CCCC');
   EdtName.Text := Employee.GetName;
   EdtSecondName.Text := Employee.GetSecondName;
   EdtOld.Text := IntToStr(Employee.GetOld);
